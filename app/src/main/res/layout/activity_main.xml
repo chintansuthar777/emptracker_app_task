@@ -115,6 +115,7 @@
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
                 android:textAllCaps="false"
+                android:onClick="testTask"
                 android:layout_centerHorizontal="true"/>
 
 

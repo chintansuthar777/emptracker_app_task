@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">emptracker_app</string>
+    <string name="task_One">Task One</string>
+    <string name="task_Two">Task Two</string>
+    <string name="task_Three">Task Three</string>
+    <string name="task_Four">Task Four</string>
 </resources>

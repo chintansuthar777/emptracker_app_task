@@ -1,10 +1,13 @@
 package com.example.emptracker_app;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,5 +29,10 @@ public class MainActivity extends AppCompatActivity {
         rellayout2 = (RelativeLayout) findViewById(R.id.rellayout2);
 
         handler.postDelayed(runnable, 3000); // timeout for splash screen
+    }
+
+    public void testTask (View view){
+        Intent intent = new Intent(this, taskListActivity.class);
+        startActivity(intent);
     }
 }

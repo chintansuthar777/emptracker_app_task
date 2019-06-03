@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
     <color name="trasparent">#00000000</color>
+    <color name="listbg">#ffd662</color>
+    <color name="listtextColor">#01539d</color>
 </resources>
