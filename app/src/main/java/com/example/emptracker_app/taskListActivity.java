@@ -14,7 +14,7 @@ public class taskListActivity extends AppCompatActivity {
     }
 
     public void taskOne(View view){
-        //Intent startNewActivity = new Intent(this, taskOneActivity.class);
-        //startActivity(startNewActivity);
+        Intent startNewActivity = new Intent(this, taskDetails.class);
+        startActivity(startNewActivity);
     }
 }

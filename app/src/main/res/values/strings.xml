@@ -4,4 +4,7 @@
     <string name="task_Two">Task Two</string>
     <string name="task_Three">Task Three</string>
     <string name="task_Four">Task Four</string>
+    <string name="accept">Accept</string>
+
+
 </resources>

@@ -37,22 +37,24 @@
         android:orientation="vertical">
 
         <Button
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/tasklistlayout"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/listtextColor"
-        android:background="@drawable/list_bg"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/task_One"
-        android:textSize="16sp"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:textAllCaps="false"
-        android:onClick="taskOne"
-        android:layout_centerHorizontal="true"/>
+            android:id="@+id/assignedTask1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tasklistlayout"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/listtextColor"
+            android:background="@drawable/list_bg"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/task_One"
+            android:textSize="16sp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:textAllCaps="false"
+            android:onClick="taskOne"
+            android:layout_centerHorizontal="true"/>
 
         <Button
+            android:id="@+id/assignedTask2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@+id/tasklistlayout"
@@ -65,9 +67,11 @@
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:textAllCaps="false"
+            android:onClick="taskOne"
             android:layout_centerHorizontal="true"/>
 
         <Button
+            android:id="@+id/assignedTask3"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@+id/tasklistlayout"
@@ -80,9 +84,11 @@
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:textAllCaps="false"
+            android:onClick="taskOne"
             android:layout_centerHorizontal="true"/>
 
         <Button
+            android:id="@+id/assignedTask4"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@+id/tasklistlayout"
@@ -95,6 +101,7 @@
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:textAllCaps="false"
+            android:onClick="taskOne"
             android:layout_centerHorizontal="true"/>
     </LinearLayout>
     </LinearLayout>
