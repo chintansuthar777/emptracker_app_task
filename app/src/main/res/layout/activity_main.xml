@@ -60,7 +60,8 @@
                         android:text="Username"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp"
+                        />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -71,7 +72,8 @@
                         android:fontFamily="sans-serif-light"
                         android:paddingRight="15dp"
                         android:paddingLeft="15dp"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/Edit_Userame"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -100,7 +102,8 @@
                         android:fontFamily="sans-serif-light"
                         android:paddingRight="15dp"
                         android:paddingLeft="15dp"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/Edit_PassWord"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -117,8 +120,9 @@
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
                 android:textAllCaps="false"
-                android:onClick="testTask"
-                android:layout_centerHorizontal="true"/>
+                android:onClick="fnLogIn"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/btnLogin"/>
 
 
         </RelativeLayout>
