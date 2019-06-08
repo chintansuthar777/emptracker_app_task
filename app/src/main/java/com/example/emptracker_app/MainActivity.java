@@ -1,5 +1,6 @@
 package com.example.emptracker_app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private  EditText username, password;
     private Button btnLogin;
     SessionHandler sessionHandler;
+    Context context;
     //MCrypt mCrypt;
 
     Handler handler = new Handler();
@@ -49,15 +51,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sessionHandler = new SessionHandler(this);
+        if(sessionHandler.checkLogin()){
+            Log.i("info","Hi");
+            Intent taskListActivity = new Intent(this, taskListActivity.class);
+            startActivity(taskListActivity);
+        }
         rellayout1 = (RelativeLayout) findViewById(R.id.rellayout1);
         rellayout2 = (RelativeLayout) findViewById(R.id.rellayout2);
 
-        handler.postDelayed(runnable, 3000); // timeout for splash screen
+        handler.postDelayed(runnable, 3000); //timeout for splash screen
 
-        sessionHandler = new SessionHandler(this);
+
         username = (EditText) findViewById(R.id.Edit_Userame);
         password = (EditText) findViewById(R.id.Edit_PassWord);
         btnLogin = (Button)findViewById(R.id.btnLogin);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (sessionHandler.checkLogin()) {
+
+            Intent taskListActivity = new Intent(this, taskListActivity.class);
+            startActivity(taskListActivity);
+        }
     }
 
     public void fnLogIn(View view) throws Exception {

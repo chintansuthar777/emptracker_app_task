@@ -29,33 +29,28 @@ public class taskListActivity extends AppCompatActivity {
     SessionHandler sessionHandler;
     private Button taskBtn;
     Button[] buttons;
+    String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
-        sessionHandler = new SessionHandler(taskListActivity.this);
-        sessionHandler.checkLogin();
 
-        HashMap<String, String> user = sessionHandler.getUserDetail();
-        String uname = user.get(SessionHandler.NAME);
 
         String logInURL = "http://192.168.56.1/website/AppOperation.php";
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, logInURL, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
                 try {
 
-                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = new JSONObject(response);
 
-
-                    Log.i("JSON", String.valueOf(jsonArray));
                     buttons = new Button[10];
 
-                    if(jsonArray.getBoolean("error")==false){
+                    if(jsonObject.getBoolean("error")==false){
 
-                        JSONObject jsonArrayTask = (JSONObject) jsonArray.getJSONObject(Integer.parseInt("TaskData"));
+                        JSONArray jsonArray = jsonObject.getJSONArray("TaskData");
 
                         for(int i=0; i<jsonArray.length();i++){
 
@@ -63,23 +58,16 @@ public class taskListActivity extends AppCompatActivity {
                             int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
                             buttons[i] = ((Button) findViewById(resID));
 
-
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             Iterator it = jsonObject1.keys();
                             String key = (String) it.next();
                             String value = jsonObject1.getString(key);
                             buttons[i].setText(value);
-
-                            //JSONObject json_data = jsonArray.getJSONObject(i);
-                           // taskBtn = (Button)findViewById(R.id.resID);
-                            //json_data.getInt("account");
                         }
                     }else {
 
-                        Toast.makeText(getApplicationContext(), jsonArray.getString(Integer.parseInt("Msg")), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), jsonObject.getString("Msg"), Toast.LENGTH_LONG).show();
                     }
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -94,8 +82,8 @@ public class taskListActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                //params.put("username", userNm);
-                params.put("ActionType", "checkLogIn");
+                params.put("username", "bhavikshah746");
+                params.put("ActionType", "getTask");
                 return params;
             }
         };
@@ -104,6 +92,20 @@ public class taskListActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        sessionHandler = new SessionHandler(taskListActivity.this);
+
+        if(sessionHandler.checkLogin()) {
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
     public void taskOne(View view){

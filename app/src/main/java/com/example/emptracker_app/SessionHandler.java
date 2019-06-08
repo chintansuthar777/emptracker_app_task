@@ -2,8 +2,7 @@ package com.example.emptracker_app;
 import android.content.SharedPreferences;
 import android.content.Context;
 import android.content.Intent;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.HashMap;
 
 public class SessionHandler {
@@ -28,20 +27,20 @@ public class SessionHandler {
         editor.putBoolean(LOGIN, true);
         editor.putString(NAME, name);
         editor.apply();
-
     }
 
     public boolean isLoggin(){
         return sharedPreferences.getBoolean(LOGIN, false);
     }
 
-    public void checkLogin(){
+    public boolean checkLogin(){
 
         if (!this.isLoggin()){
             Intent i = new Intent(context, MainActivity.class);
             context.startActivity(i);
             //((HomeActivity) context).finish();
         }
+        return true;
     }
 
     public HashMap<String, String> getUserDetail(){
